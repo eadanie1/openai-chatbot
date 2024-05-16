@@ -8,19 +8,19 @@ const app = express();
 dotenv.config();
 app.use(express.json(), cors());
 
-// const openai = new OpenAI();
+const openai = new OpenAI();
 
-// async function main() {
-//   const completion = await openai.chat.completions.create({
-//     messages: [{ role: "system", content: "You are a Scottish fisherman." }],
-//     model: "gpt-3.5-turbo",
-//   });
+async function main() {
+  const completion = await openai.chat.completions.create({
+    messages: [{ role: "system", content: "You are a Scottish fisherman." }],
+    model: "gpt-3.5-turbo",
+  });
 
-//   // console.log(completion.choices[0]);
-//   console.log(completion.choices[0].message.content);
-// }
+  // console.log(completion.choices[0]);
+  console.log(completion.choices[0].message.content);
+}
 
-// main();
+main();
 
 app.post(
   '/chat',
@@ -32,5 +32,4 @@ app.post(
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
-  
 });
