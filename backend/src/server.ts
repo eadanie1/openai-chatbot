@@ -17,14 +17,14 @@ app.post(
     if (!message) return res.status(400).json({ error: "Message is required" });
     
     const completion = await openai.chat.completions.create({
-      messages: [{ role: "system", content: "You are a Scottish fisherman." },
+      messages: [{ role: "system", content: "You are a Scottish comedian." },
       { role: "user", content: message }],
       model: "gpt-3.5-turbo",
     });
     const reply = completion.choices[0].message.content;
     if (!reply) return res.status(500).json({ error: "Failed to generate a reply from OpenAI" });
 
-    // console.log(reply);
+    console.log(reply);
     res.json({ reply });
   })
 );
