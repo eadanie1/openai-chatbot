@@ -1,10 +1,15 @@
+import { SetStateFunc, message } from "../types/types";
+
 class ActionProvider {
+  createChatBotMessage: typeof createChatBotMessage;
+  setState: SetStateFunc;
+
   constructor(createChatBotMessage, setStateFunc) {
     this.createChatBotMessage = createChatBotMessage;
     this.setState = setStateFunc;
   }
 
-  handleInvalidInput(message) {
+  handleInvalidInput(message: message) {
     const errorMessage = this.createChatBotMessage(message);
     this.setState((prev) => ({
       ...prev,
@@ -12,7 +17,7 @@ class ActionProvider {
     }));
   }
 
-  async handleValidInput(message) {
+  async handleValidInput(message: message) {
     try {
       const response = await fetch("http://localhost:3000/chat", {
         method: "POST",

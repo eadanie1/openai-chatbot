@@ -21,8 +21,8 @@
   position: fixed;
   bottom: 24px;
   right: 26px;
-  width: 150px; /* Adjust as needed */
-  height: 150px; /* Adjust as needed */
+  width: 150px;
+  height: 150px;
   background: url('../assets/pexels-kindelmedia-8566526.jpg') no-repeat center center;
   background-size: cover;
   border: none;
