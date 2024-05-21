@@ -1,12 +1,3 @@
-// import { createChatBotMessage } from "react-chatbot-kit";
-
-// const config = {
-//   initialMessages: [createChatBotMessage("Hi there! How can I be of service?")],
-//   botName: "SteveBot",
-// };
-
-// export default config;
-
 import { createChatBotMessage } from "react-chatbot-kit";
 import MessageParser from "./MessageParser";
 import ActionProvider from "./ActionProvider";

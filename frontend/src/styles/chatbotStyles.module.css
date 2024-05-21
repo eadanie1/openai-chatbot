@@ -1,0 +1,45 @@
+.chatWindow {
+  position: fixed;
+  bottom: 24px;
+  right: 0px;
+  width: 300px;
+  z-index: 1000;
+}
+
+.minimizeButton {
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  padding: 0 10px 14px 10px;
+  background-color: #5ccc9d;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.openChatButton {
+  position: fixed;
+  bottom: 24px;
+  right: 26px;
+  width: 150px; /* Adjust as needed */
+  height: 150px; /* Adjust as needed */
+  background: url('../assets/pexels-kindelmedia-8566526.jpg') no-repeat center center;
+  background-size: cover;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
