@@ -1,10 +1,17 @@
 import { createChatBotMessage } from "react-chatbot-kit";
+import ChatBotMessage from "react-chatbot-kit";
 import MessageParser from "./MessageParser";
 import ActionProvider from "./ActionProvider";
+import { SetStateAction, Dispatch } from "react";
+import { message, ChatbotState } from "../types/types";
 
-const config = {
+const config: typeof ChatBotMessage = {
   botName: "SteveBot",
-  initialMessages: [createChatBotMessage("Hi there! How can I be of service?")],
+  initialMessages: [
+    createChatBotMessage("Hi there! How can I be of service?", {
+      loading: true,
+    }),
+  ],
   customComponents: {},
   customStyles: {
     botMessageBox: {
@@ -16,8 +23,9 @@ const config = {
   },
   state: {},
   widgets: [],
-  messageParser: (message) => new MessageParser(message),
-  actionProvider: (setState) =>
+  messageParser: (message: message, state: ChatbotState) =>
+    new MessageParser(message, state),
+  actionProvider: (setState: Dispatch<SetStateAction<any>>) =>
     new ActionProvider(createChatBotMessage, setState),
 };
 

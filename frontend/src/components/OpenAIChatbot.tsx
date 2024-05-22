@@ -7,7 +7,7 @@ import ActionProvider from "./ActionProvider";
 import styles from "../styles/chatbotStyles.module.css";
 
 const OpenAIChatbot = () => {
-  const [isMinimized, setIsMinimized] = useState(true);
+  const [isMinimized, setIsMinimized] = useState<boolean>(true);
 
   const toggleMinimize = () => {
     setIsMinimized(!isMinimized);

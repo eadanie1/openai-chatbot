@@ -1,17 +1,24 @@
-import { SetStateFunc, message } from "../types/types";
+import { createChatBotMessage } from "react-chatbot-kit";
+import { SetStateAction, Dispatch } from "react";
+import { message, ChatbotState } from "../types/types";
+
+type BotMessage = ReturnType<typeof createChatBotMessage>;
 
 class ActionProvider {
-  createChatBotMessage: typeof createChatBotMessage;
-  setState: SetStateFunc;
+  private createChatBotMessage;
+  private setState: Dispatch<SetStateAction<any>>;
 
-  constructor(createChatBotMessage, setStateFunc) {
+  constructor(
+    createChatBotMessage,
+    setStateFunc: Dispatch<SetStateAction<any>>
+  ) {
     this.createChatBotMessage = createChatBotMessage;
     this.setState = setStateFunc;
   }
 
   handleInvalidInput(message: message) {
-    const errorMessage = this.createChatBotMessage(message);
-    this.setState((prev) => ({
+    const errorMessage: BotMessage = this.createChatBotMessage(message);
+    this.setState((prev: ChatbotState) => ({
       ...prev,
       messages: [...prev.messages, errorMessage],
     }));
@@ -28,9 +35,9 @@ class ActionProvider {
       });
 
       const data = await response.json();
-      const botMessage = this.createChatBotMessage(data.reply);
+      const botMessage: BotMessage = this.createChatBotMessage(data.reply);
 
-      this.setState((prev) => ({
+      this.setState((prev: ChatbotState) => ({
         ...prev,
         messages: [...prev.messages, botMessage],
       }));

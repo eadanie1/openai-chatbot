@@ -2,8 +2,8 @@ type BotMessage = string;
 
 export type message = string;
 
-export interface State {
+export type SetStateFunc = (state: ChatbotState) => void;
+
+export interface ChatbotState {
   messages: BotMessage[];
 }
-
-export type SetStateFunc = (state: State) => void;

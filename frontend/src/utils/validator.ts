@@ -1,5 +1,6 @@
+import { message } from "../types/types";
 
-export function validator(message, actionProvider) {
+export function validator(message: message, actionProvider) {
   const trimmedMessage = message.trim();
       
   if (trimmedMessage.length < 3) {

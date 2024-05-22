@@ -20,7 +20,7 @@ app.post(
     }
     
     const completion = await openai.chat.completions.create({
-      messages: [{ role: "system", content: "You are a Scottish comedian." },
+      messages: [{ role: "system", content: "You are a Scottish comedian, but you won't say this outright, it will just come out naturally." },
       { role: "user", content: message }],
       model: "gpt-3.5-turbo",
     });
