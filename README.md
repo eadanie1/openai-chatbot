@@ -31,8 +31,8 @@ npm install
 
 4. Set up environment variables:
 
-   - Create a `.env` file in the root directory.
-   - Define the `OPENAI_API_KEY` variable in the `.env` file and set it to your OpenAI API key.
+   - Create a `.env` file in the backend directory.
+   - Define the `OPENAI_API_KEY` variable in the `.env` file and set it to your OpenAI API key. If you do not have an OpenAI API key, proceed to https://platform.openai.com/docs/quickstart?context=node and setup a developer account, then add $5 to the account in order to enable your account to make requests to the API.
 
 ## Usage
 
